@@ -2,6 +2,10 @@ const { Schema, model, Types } = require('mongoose');
 
 
 const ReactionSchema = new Schema({
+    username: {
+        type: String,
+        required: true
+    },
     reactionId: {
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId()
@@ -9,11 +13,7 @@ const ReactionSchema = new Schema({
     reactionBody: {
         type: String,
         required: true,
-        maxlength: 280
-    },
-    username: {
-        type: String,
-        required: true
+        maxlength: 150,
     },
 },
     {
@@ -30,7 +30,7 @@ const ThoughtSchema = new Schema({
         type: String,
         required: true,
         minlength: 1,
-        maxlength: 280
+        maxlength: 150,
     },
     createdAt: {
         type: Date,
